@@ -1,6 +1,6 @@
 import reactAtomImg from "../assets/react-core-concepts.png";
-function Header() {
-    const description = reactDescriptions[genRandomInt(reactDescriptions.length)];
+function Header({description}) {
+
     return (
         <header>
             <img src={reactAtomImg} alt="Stylized atom" />
