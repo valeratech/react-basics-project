@@ -1,6 +1,13 @@
 import reactAtomImg from "../assets/react-core-concepts.png";
 
-function Header({headerDescription}) {
+function genRandomInt(max) {
+    return Math.floor(Math.random() * (max + 1));
+}
+
+function Header() {
+
+    const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+    const headerDescription = reactDescriptions[genRandomInt(reactDescriptions.length)];
 
     return (
         <header>
