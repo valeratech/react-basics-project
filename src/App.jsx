@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
 import {CORE_CONCEPTS} from "./data/data";
+import MenuButton from "./components/MenuButton";
 
 function App() {
     return (
