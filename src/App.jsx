@@ -4,6 +4,7 @@ import {CORE_CONCEPTS} from "./data/data";
 import MenuButton from "./components/MenuButton";
 
 function App() {
+    const menuTitles = ['Components', 'JSX', 'Props', 'State']
     return (
         <div>
             <Header />
@@ -15,6 +16,14 @@ function App() {
                             <CoreConcept image={concept.image} title={concept.title} description={concept.description} />
                         ))}
                     </ul>
+                </section>
+                <section id="examples">
+                    <h2>Examples</h2>
+                    <menu>
+                        {menuTitles.map(title => (
+                            <MenuButton>{title}</MenuButton>
+                        ))}
+                    </menu>
                 </section>
             </main>
         </div>
