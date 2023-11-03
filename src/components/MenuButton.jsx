@@ -1,7 +1,7 @@
-function MenuButton({children}) {
+function MenuButton({children, onMenuSelectHandler}) {
     return (
         <li>
-            <button>{children}</button>
+            <button onClick={onMenuSelectHandler}>{children}</button>
         </li>
         );
 }
