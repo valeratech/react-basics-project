@@ -7,11 +7,24 @@ import {useState} from "react";
 function App() {
     const menuTitles = ['Components', 'JSX', 'Props', 'State'];
 
-    const [menuTopic, setMenuTopic] = useState('components');
+    const [menuTopic, setMenuTopic] = useState('');
 
     function menuSelectHandler(e) {
         setMenuTopic(e.target.textContent.toLowerCase());
         console.log(e.target.textContent.toLowerCase());
+    }
+
+    let selectedTopic = <h3>Please Select a Topic</h3>;
+
+    if (menuTopic) {
+        selectedTopic =
+            <div id="tab-content">
+                <h3>{EXAMPLES[menuTopic].title}</h3>
+                <p>{EXAMPLES[menuTopic].description}</p>
+                <pre>
+                    <code>{EXAMPLES[menuTopic].code}</code>
+                </pre>
+            </div>;
     }
 
     return (
@@ -35,13 +48,7 @@ function App() {
                             <MenuButton key={index+1} isActive={menuTopic === title.toLowerCase()} onMenuSelectHandler={(e) => menuSelectHandler(e)}>{title}</MenuButton>
                         ))}
                     </menu>
-                    <div id="tab-content">
-                        <h3>{EXAMPLES[menuTopic].title}</h3>
-                        <p>{EXAMPLES[menuTopic].description}</p>
-                        <pre>
-                            <code>{EXAMPLES[menuTopic].code}</code>
-                        </pre>
-                    </div>
+                    {selectedTopic}
                 </section>
             </main>
         </div>
