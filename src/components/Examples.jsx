@@ -1,4 +1,5 @@
 import MenuButton from "./MenuButton";
+import Section from "./Section";
 import {EXAMPLES} from "../data/data";
 import './Examples.css';
 import {useState} from "react";
@@ -25,21 +26,20 @@ function Examples({coreConceptsArray}) {
     }
 
     return (
-        <section id="examples">
-            <h2>Examples</h2>
+        <Section title="Examples" id="examples">
             <menu>
                 {coreConceptsArray.map((concept, index) => (
                     <MenuButton
                         key={index+1}
                         isActive={menuTopic === concept.title.toLowerCase()}
-                        onMenuSelectHandler={menuSelectHandler}
+                        onMenuSelect={menuSelectHandler}
                     >
                     {concept.title}
                     </MenuButton>
                 ))}
             </menu>
             {selectedTopic}
-        </section>
+        </Section>
     )
 }
 

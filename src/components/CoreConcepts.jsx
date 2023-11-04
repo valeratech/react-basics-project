@@ -1,10 +1,10 @@
 import CoreConcept from "./CoreConcept";
+import Section from "./Section";
 import './CoreConcepts.css';
 
 function CoreConcepts({coreConceptsArray}) {
     return (
-        <section id="core-concepts">
-            <h2>Time to get started!</h2>
+        <Section title="Time to get started!" id="core-concepts">
             <ul>
                 {coreConceptsArray.map((concept, index) => (
                     // Listed 2 alternate methods for dynamically rendering data from the CORE_CONCEPTS array
@@ -12,7 +12,7 @@ function CoreConcepts({coreConceptsArray}) {
                     <CoreConcept key={index+1} {...concept} />
                 ))}
             </ul>
-        </section>
+        </Section>
     );
 }
 
