@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import CoreConcept from "./components/CoreConcept";
+import CoreConcepts from "./components/CoreConcepts";
 import {CORE_CONCEPTS, EXAMPLES} from "./data/data";
 import MenuButton from "./components/MenuButton";
 import {useState} from "react";
@@ -29,16 +29,7 @@ function App() {
         <div>
             <Header />
             <main>
-                <section id="core-concepts">
-                    <h2>Time to get started!</h2>
-                    <ul>
-                        {CORE_CONCEPTS.map((concept, index) => (
-                            // Listed 2 alternate methods for dynamically rendering data from the CORE_CONCEPTS array
-                            // <CoreConcept key={index+1} image={concept.image} title={concept.title} description={concept.description} />
-                            <CoreConcept {...concept} />
-                        ))}
-                    </ul>
-                </section>
+                <CoreConcepts />
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
