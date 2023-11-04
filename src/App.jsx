@@ -5,8 +5,6 @@ import MenuButton from "./components/MenuButton";
 import {useState} from "react";
 
 function App() {
-    const menuTitles = ['Components', 'JSX', 'Props', 'State'];
-
     const [menuTopic, setMenuTopic] = useState('');
 
     function menuSelectHandler(e) {
@@ -44,8 +42,8 @@ function App() {
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        {menuTitles.map((title, index) => (
-                            <MenuButton key={index+1} isActive={menuTopic === title.toLowerCase()} onMenuSelectHandler={(e) => menuSelectHandler(e)}>{title}</MenuButton>
+                        {CORE_CONCEPTS.map((concept, index) => (
+                            <MenuButton key={index+1} isActive={menuTopic === concept.title.toLowerCase()} onMenuSelectHandler={(e) => menuSelectHandler(e)}>{concept.title}</MenuButton>
                         ))}
                     </menu>
                     {selectedTopic}
