@@ -1,7 +1,7 @@
 function MenuButton({children, onMenuSelectHandler, isActive}) {
     return (
         <li>
-            <button onClick={onMenuSelectHandler} className={isActive ? 'active' : undefined}>{children}</button>
+            <button onClick={(e) => onMenuSelectHandler(e)} className={isActive ? 'active' : undefined}>{children}</button>
         </li>
         );
 }
