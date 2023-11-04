@@ -22,7 +22,9 @@ function App() {
                     <h2>Time to get started!</h2>
                     <ul>
                         {CORE_CONCEPTS.map((concept, index) => (
-                            <CoreConcept key={index+1} image={concept.image} title={concept.title} description={concept.description} />
+                            // Listed 2 alternate methods for dynamically rendering data from the CORE_CONCEPTS array
+                            // <CoreConcept key={index+1} image={concept.image} title={concept.title} description={concept.description} />
+                            <CoreConcept {...concept} />
                         ))}
                     </ul>
                 </section>
@@ -30,7 +32,7 @@ function App() {
                     <h2>Examples</h2>
                     <menu>
                         {menuTitles.map((title, index) => (
-                            <MenuButton key={index+1} onMenuSelectHandler={(e) => menuSelectHandler(e)}>{title}</MenuButton>
+                            <MenuButton key={index+1} isActive={menuTopic === title.toLowerCase()} onMenuSelectHandler={(e) => menuSelectHandler(e)}>{title}</MenuButton>
                         ))}
                     </menu>
                     <div id="tab-content">
