@@ -1,5 +1,6 @@
 import MenuButton from "./MenuButton";
 import Section from "./Section";
+import TabMenu from "./TabMenu";
 import {EXAMPLES} from "../data/data";
 import './Examples.css';
 import {useState} from "react";
@@ -25,20 +26,22 @@ function Examples({coreConceptsArray}) {
             </div>;
     }
 
+    const examplesButtons =
+        <>
+            {coreConceptsArray.map((concept, index) => (
+                <MenuButton
+                    key={index+1}
+                    isActive={menuTopic === concept.title.toLowerCase()}
+                    onMenuSelect={menuSelectHandler}
+                >
+                    {concept.title}
+                </MenuButton>
+            ))}
+        </>
+
     return (
         <Section title="Examples" id="examples">
-            <menu>
-                {coreConceptsArray.map((concept, index) => (
-                    <MenuButton
-                        key={index+1}
-                        isActive={menuTopic === concept.title.toLowerCase()}
-                        onMenuSelect={menuSelectHandler}
-                    >
-                    {concept.title}
-                    </MenuButton>
-                ))}
-            </menu>
-            {selectedTopic}
+            <TabMenu buttons={examplesButtons}>{selectedTopic}</TabMenu>
         </Section>
     )
 }
